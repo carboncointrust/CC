@@ -87,8 +87,7 @@ $(OSX_DMG): $(OSX_APP_BUILT) $(OSX_PACKAGING)
 else
 $(OSX_DMG): $(OSX_APP_BUILT) $(OSX_PACKAGING)
 	INSTALLNAMETOOL=$(INSTALLNAMETOOL)  OTOOL=$(OTOOL) STRIP=$(STRIP) $(OSX_DEPLOY_SCRIPT) $(OSX_APP) -add-qt-tr $(OSX_QT_TRANSLATIONS) -verbose 2
-	$(MKDIR_P) dist/.background
-	$(INSTALL) contrib/macdeploy/background.png dist/.background
+	$(INSTALL) contrib/macdeploy/background.png dist
 	$(INSTALL) contrib/macdeploy/DS_Store dist/.DS_Store
 	cd dist; $(LN_S) /Applications Applications
 	$(GENISOIMAGE) -no-cache-inodes -l -probe -V "Carboncoin-Qt" -no-pad -r -apple -o $@ dist
