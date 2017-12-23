@@ -2481,12 +2481,6 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
         if (pcheckpoint && nHeight < pcheckpoint->nHeight)
             return state.DoS(100, error("AcceptBlock() : forked chain older than last checkpoint (height %d)", nHeight));
 
-        
-        if (block.nVersion > 2)
-        {
-            LogPrintf("AcceptBlock() : invalid block version %lu height: %lu hash: prev=%s\n", (unsigned long)block.nVersion, (unsigned long)nHeight, hash.ToString());
-        }
-        
         // Reject block.nVersion=1 blocks when 95% (75% on testnet) of the network has upgraded:
         if (block.nVersion < 2)
         {
@@ -2497,7 +2491,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
                                      REJECT_OBSOLETE, "bad-version");
             }
         }
-        /*
+        
         // Reject block.nVersion=2 blocks when 95% (75% on testnet) of the network has upgraded:
         if (block.nVersion < 3)
         {
@@ -2508,7 +2502,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
                                      REJECT_OBSOLETE, "bad-version");
             }
         }
-        */
+        
         // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
         if (block.nVersion >= 2)
         {
@@ -2560,7 +2554,7 @@ bool CBlockIndex::IsSuperMajority(int minVersion, const CBlockIndex* pstart, uns
     unsigned int nFound = 0;
     for (unsigned int i = 0; i < nToCheck && nFound < nRequired && pstart != NULL; i++)
     {
-        if (pstart->nVersion >= minVersion)
+        if (pstart->nVersion == minVersion)
             ++nFound;
         pstart = pstart->pprev;
     }
