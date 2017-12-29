@@ -23,11 +23,9 @@ public:
      */
     enum Unit
     {
-        MCARBON,
-        KCARBON,
         CARBON,
-        mCARBON,
-        uCARBON
+        KCARBON,
+        MCARBON
     };
 
     //! @name Static API
