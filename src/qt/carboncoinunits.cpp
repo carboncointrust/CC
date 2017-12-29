@@ -15,6 +15,8 @@ CarboncoinUnits::CarboncoinUnits(QObject *parent):
 QList<CarboncoinUnits::Unit> CarboncoinUnits::availableUnits()
 {
     QList<CarboncoinUnits::Unit> unitlist;
+    unitlist.append(MCARBON);
+    unitlist.append(KCARBON);
     unitlist.append(CARBON);
     unitlist.append(mCARBON);
     unitlist.append(uCARBON);
@@ -25,6 +27,8 @@ bool CarboncoinUnits::valid(int unit)
 {
     switch(unit)
     {
+    case MCARBON:
+    case KCARBON:
     case CARBON:
     case mCARBON:
     case uCARBON:
@@ -38,6 +42,8 @@ QString CarboncoinUnits::name(int unit)
 {
     switch(unit)
     {
+    case MCARBON: return QString("MCARBON");
+    case KCARBON: return QString("KCARBON");
     case CARBON: return QString("CARBON");
     case mCARBON: return QString("mCARBON");
     case uCARBON: return QString::fromUtf8("μCARBON");
@@ -49,6 +55,8 @@ QString CarboncoinUnits::description(int unit)
 {
     switch(unit)
     {
+    case MCARBON: return QString("Mega-Carboncoins (1,000,000)");
+    case KCARBON: return QString("Kilo-Carboncoins (1,000)");
     case CARBON: return QString("Carboncoins");
     case mCARBON: return QString("Milli-Carboncoins (1 / 1,000)");
     case uCARBON: return QString("Micro-Carboncoins (1 / 1,000,000)");
@@ -60,6 +68,8 @@ qint64 CarboncoinUnits::factor(int unit)
 {
     switch(unit)
     {
+    case MCARBON: return 100000000000000;
+    case KCARBON: return 100000000000;
     case CARBON:  return 100000000;
     case mCARBON: return 100000;
     case uCARBON: return 100;
@@ -71,6 +81,8 @@ qint64 CarboncoinUnits::maxAmount(int unit)
 {
     switch(unit)
     {
+    case MCARBON: return Q_INT64_C(21);
+    case KCARBON: return Q_INT64_C(21000);
     case CARBON:  return Q_INT64_C(21000000);
     case mCARBON: return Q_INT64_C(21000000000);
     case uCARBON: return Q_INT64_C(21000000000000);
@@ -82,6 +94,8 @@ int CarboncoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
+    case MCARBON: return 2; // 21 (# digits, without commas)
+    case KCARBON: return 5; // 21,000 (# digits, without commas)
     case CARBON: return 8; // 21,000,000 (# digits, without commas)
     case mCARBON: return 11; // 21,000,000,000
     case uCARBON: return 14; // 21,000,000,000,000
@@ -93,6 +107,8 @@ int CarboncoinUnits::decimals(int unit)
 {
     switch(unit)
     {
+    case MCARBON: return 14;
+    case KCARBON: return 11;
     case CARBON: return 8;
     case mCARBON: return 5;
     case uCARBON: return 2;

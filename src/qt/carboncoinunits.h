@@ -23,6 +23,8 @@ public:
      */
     enum Unit
     {
+        MCARBON,
+        KCARBON,
         CARBON,
         mCARBON,
         uCARBON
