@@ -1364,6 +1364,9 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos)
         return error("%s : Deserialize or I/O error - %s", __func__, e.what());
     }
 
+    if (block.GetHash() == Params().HashGenesisBlock())
+        return true;
+
     // Check the header
     if (!CheckProofOfWork(block.GetPoWHash(), block.nBits))
         return error("ReadBlockFromDisk : Errors in block header");
