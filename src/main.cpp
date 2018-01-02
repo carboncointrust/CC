@@ -533,8 +533,8 @@ bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
         if (pfrom)
         {
             PushGetBlocks(pfrom, chainActive.Tip(), hashCheckpoint);
-            //pfrom->AskFor(CInv(MSG_BLOCK, hashCheckpoint));
-            //LogPrintf("ProcessSyncCheckpoint: asking for checkpoint block %s\n", hashCheckpoint.ToString());
+            pfrom->AskFor(CInv(MSG_BLOCK, hashCheckpoint));
+            LogPrintf("ProcessSyncCheckpoint: asking for checkpoint block %s\n", hashCheckpoint.ToString());
         }
         
         return false;
