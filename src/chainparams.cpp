@@ -68,6 +68,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0x074bbb9d355731bfa8f67130e2179db7518d1387ad52e55309d4debe7d4e6383"));
 
         vSeeds.push_back(CDNSSeedData("sequestrationcoin.com", "dnsseed.sequestrationcoin.com"));
+        vSeeds.push_back(CDNSSeedData("sequestrationcoin.com", "dnsmain.sequestrationcoin.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(47);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
@@ -132,6 +133,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         vSeeds.push_back(CDNSSeedData("sequestrationcoin.com", "dnsseed.sequestrationcoin.com"));
+        vSeeds.push_back(CDNSSeedData("sequestrationcoin.com", "dnstest.sequestrationcoin.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(113);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
