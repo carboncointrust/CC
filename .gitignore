@@ -36,7 +36,7 @@ src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
 
-src/univalue/gen
+#src/univalue/gen
 
 src/qt/*.moc
 src/qt/moc_*.cpp
@@ -55,7 +55,7 @@ src/qt/test/moc*.cpp
 *.pyc
 *.o
 *.o-*
-*.patch
+#*.patch
 *.a
 *.pb.cc
 *.pb.h
@@ -73,7 +73,7 @@ src/qt/test/moc*.cpp
 
 # Compilation and Qt preprocessor part
 *.qm
-Makefile
+#Makefile
 carboncoin-qt
 Carboncoin-Qt.app
 
