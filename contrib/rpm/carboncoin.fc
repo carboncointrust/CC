@@ -1,0 +1,8 @@
+/usr/bin/carboncoin-cli		--	gen_context(system_u:object_r:carboncoin_exec_t,s0)
+/usr/sbin/carboncoind		--	gen_context(system_u:object_r:carboncoin_exec_t,s0)
+/usr/lib(64)?/carboncoin/carboncoind		--	gen_context(system_u:object_r:carboncoin_exec_t,s0)
+
+/etc/carboncoin(/.*)?		gen_context(system_u:object_r:carboncoin_conf_t,s0)
+/var/lib/carboncoin(/.*)?		gen_context(system_u:object_r:carboncoin_var_lib_t,s0)
+
+(/var)?/run/carboncoind(/.*)?   gen_context(system_u:object_r:carboncoin_var_run_t,s0)
